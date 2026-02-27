@@ -75,6 +75,14 @@ public class ReflectionDemo {
             System.out.println("\n== DYNAMIC INSTANCE==");
             System.out.println("Default name: " + ((Person) personInstance).getName());
             System.out.println("Default age: " + ((Person) personInstance).getAge());
+
+
+            // step 5 : Invoke private method
+
+            Method secretMethod = personClass.getDeclaredMethod("secretMethod");
+            secretMethod.setAccessible(true); // allow access to private method 
+            System.out.println("\n== INVOKING PRIVATE METHOD ==");
+            secretMethod.invoke(personInstance); // prints its a secret 
         } catch (Exception e) {
             // Reflection API throw checked exceptions (ClassNotFound etc...)
             e.printStackTrace();
