@@ -45,6 +45,15 @@ public class LoggingHandler implements InvocationHandler {
     // call the actual method in the real object
     Object result = method.invoke(target, args);
 
+    // Step 7 : modify return value 
+    if (result instanceof String) {
+        System.out.println("Original return value: " + result);
+
+        result = ((String)result).toUpperCase() + " !!! T'ES EFFRAYÉE HEIN !";
+
+        System.out.println("Modified return values: " + result);
+    }
+
     // logic exexcuted AFTER the real method 
     System.out.println("After method: " + method.getName());
 
