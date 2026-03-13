@@ -29,10 +29,16 @@ public class LoggingHandler implements InvocationHandler {
     //logic executed BEFORE the real method
     System.out.println("Before method: " + method.getName());
 
-    // inspect args if present 
+    // inspect & modify args if present 
     if (args != null) {
-        for (Object arg : args ) {
-            System.out.println("Args: " + arg);
+        for (int i = 0; i < args.length; i++) {
+            System.out.println("Original argument: " + args[i]);
+
+            // example: if argument is a String, convert to uppercase
+            if (args[i] instanceof String) {
+                args[i] = ((String) args[i]).toUpperCase();
+            }
+            System.out.println("Modified arg: " + args[i]);
         }
     }
 

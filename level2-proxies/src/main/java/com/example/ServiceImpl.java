@@ -15,6 +15,6 @@ public class ServiceImpl implements Service {
     @Override
     public String process(String name) {
         System.out.println("Processing user: " + name);
-        return "Hello" + name;
+        return "Hello " + name;
     }
 }

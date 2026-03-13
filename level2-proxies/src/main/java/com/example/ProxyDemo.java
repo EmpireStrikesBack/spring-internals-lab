@@ -31,7 +31,7 @@ public class ProxyDemo {
        proxyService.execute();
 
        // new method with params 
-       System.out.println("\n== PARAM INTERCEPTION ==");
+       System.out.println("\n== ARG MODIFICATION ==");
 
        String result = proxyService.process("Alice");
 
