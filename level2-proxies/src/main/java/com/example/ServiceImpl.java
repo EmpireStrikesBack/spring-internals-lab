@@ -11,4 +11,10 @@ public class ServiceImpl implements Service {
     public void execute() {
         System.out.println("Service is executing...");
     }
+
+    @Override
+    public String process(String name) {
+        System.out.println("Processing user: " + name);
+        return "Hello" + name;
+    }
 }

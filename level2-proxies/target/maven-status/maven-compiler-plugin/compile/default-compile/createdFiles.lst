@@ -1,1 +1,5 @@
+com/example/LoggingHandler.class
 com/example/App.class
+com/example/Service.class
+com/example/ProxyDemo.class
+com/example/ServiceImpl.class

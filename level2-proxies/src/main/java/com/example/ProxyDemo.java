@@ -29,5 +29,12 @@ public class ProxyDemo {
 
        //call method through proxy
        proxyService.execute();
+
+       // new method with params 
+       System.out.println("\n== PARAM INTERCEPTION ==");
+
+       String result = proxyService.process("Alice");
+
+       System.out.println("Returned value: " + result);
     }
 }

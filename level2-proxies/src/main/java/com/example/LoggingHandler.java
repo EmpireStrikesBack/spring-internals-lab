@@ -6,6 +6,8 @@ import java.lang.reflect.Method;
 /*
 Step 3 : InvocationHandler intercepts all method calls
 - When a proxy method is called, Java routes the cal through this invoke() method
+
+Step 5 : inspect method args
 */
 
 public class LoggingHandler implements InvocationHandler {
@@ -26,6 +28,13 @@ public class LoggingHandler implements InvocationHandler {
    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     //logic executed BEFORE the real method
     System.out.println("Before method: " + method.getName());
+
+    // inspect args if present 
+    if (args != null) {
+        for (Object arg : args ) {
+            System.out.println("Args: " + arg);
+        }
+    }
 
     // call the actual method in the real object
     Object result = method.invoke(target, args);
