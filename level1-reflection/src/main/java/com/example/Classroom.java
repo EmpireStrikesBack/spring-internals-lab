@@ -12,7 +12,7 @@ public class Classroom {
 
     // constructor : initialize name & empty student list
     public Classroom(String name) {
-        this.name = name; // warning: field never locally used 
+        this.name = name; 
         this.students = new ArrayList<>();
     }
 
@@ -20,4 +20,7 @@ public class Classroom {
     public void addStudent(Person p) {students.add(p);}
     // return the students' list 
     public List<Person> getStudents() {return students;}
+
+    // name getter for Classroom
+    public String getName() {return name;}
 }

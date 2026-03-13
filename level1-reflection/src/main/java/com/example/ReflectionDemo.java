@@ -83,6 +83,45 @@ public class ReflectionDemo {
             secretMethod.setAccessible(true); // allow access to private method 
             System.out.println("\n== INVOKING PRIVATE METHOD ==");
             secretMethod.invoke(personInstance); // prints its a secret 
+
+
+            // step 6 : modify private fields 
+
+            System.out.println("\n== MODIFYING PRIVATE FIELDS==");
+
+            // get the 'name' field
+            Field nameField = personClass.getDeclaredField("name");
+            nameField.setAccessible(true);
+            nameField.set(personInstance, "Alice"); // change value 
+
+            // get the age field 
+            Field ageField = personClass.getDeclaredField("age");
+            ageField.setAccessible(true);
+            ageField.set(personInstance, 30); // change value 
+
+            // print modified values 
+            System.out.println("Modified Name: " + ((Person) personInstance).getName());
+            System.out.println("Modified Age: " + ((Person) personInstance).getAge());
+
+            
+            // step 7: Instantiate Using Parameterized Constructor
+
+            System.out.println("\n== PARAMETERIZED CONSTRUCTOR ==");
+
+            // Retrieve constructor with parameters (String, int)
+            Constructor<?> paramConstructor =
+                    personClass.getConstructor(String.class, int.class);
+
+            // Create a new Person instance using those parameters
+            Object personWithParams = paramConstructor.newInstance("Bob", 45);
+
+            // Cast so we can call getters
+            Person p2 = (Person) personWithParams;
+
+            // Verify values
+            System.out.println("Name: " + p2.getName());
+            System.out.println("Age: " + p2.getAge());
+
         } catch (Exception e) {
             // Reflection API throw checked exceptions (ClassNotFound etc...)
             e.printStackTrace();
