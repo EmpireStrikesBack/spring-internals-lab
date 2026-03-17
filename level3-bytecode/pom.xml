@@ -18,4 +18,12 @@
   <!-- Packaging is jar by default but explicit is fine-->
   <packaging>jar</packaging>
   
+  <dependencies>
+    <dependency>
+    <!--ASM only fo lvl 3-->
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm</artifactId>
+      <version>9.6</version>
+    </dependency>
+  </dependencies>
 </project>
