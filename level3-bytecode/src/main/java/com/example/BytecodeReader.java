@@ -54,6 +54,18 @@ public class BytecodeReader {
                         System.out.println(" Owner: " + owner);
                         System.out.println(" Name: " + name);
                     }
+
+                    @Override
+                    public void visitFieldInsn(int opcode, String owner, String name, String description) {
+                        System.out.println("Field access:");
+                        System.out.println(" Owner: " + owner);
+                        System.out.println(" Name: " + name);
+                    }
+
+                    @Override
+                    public void visitLdcInsn(Object value) {
+                        System.out.println("Load constant: " + value);
+                    }
                 };
             }
        }, 0);
