@@ -28,8 +28,8 @@ public class BytecodeTransformer {
                         access, name, descriptor, signature, exceptions
                     );
 
-                    // only target sayHello()
-                    if (!name.equals("<init>")) {
+                    // instrument sayHello() --> void method 
+                    if (name.equals("sayHello") && descriptor.equals("()V")) {
                         return new MethodVisitor(Opcodes.ASM9, mv) {
                             @Override
                             public void visitCode() {
@@ -42,8 +42,7 @@ public class BytecodeTransformer {
                                     "out",
                                     "Ljava/io/PrintStream;"
                                 );
-                                mv.visitLdcInsn(">> Entering method");
-
+                                mv.visitLdcInsn(">> Entering sayHello");
                                 mv.visitMethodInsn(
                                     Opcodes.INVOKEVIRTUAL,
                                     "java/io/PrintStream",
@@ -65,7 +64,6 @@ public class BytecodeTransformer {
                                         "Ljava/io/PrintStream;"
                                     );
                                     mv.visitLdcInsn(">> Exiting method");
-
                                     mv.visitMethodInsn(
                                         Opcodes.INVOKEVIRTUAL,
                                         "java/io/PrintStream",
@@ -73,6 +71,26 @@ public class BytecodeTransformer {
                                         "(Ljava/lang/String;)V",
                                         false
                                     );
+                                }
+                                super.visitInsn(opcode);
+                            }
+                        };
+                    }
+
+                    // Instrument greet(String) --> String return 
+                    if (name.equals("greet") && descriptor.equals("(Ljava/lang/String;)Ljava/lang/String;")) {
+                        return new MethodVisitor(Opcodes.ASM9, mv) {
+                            @Override
+                            public void visitInsn(int opcode) {
+                                // intercept return value 
+                                if (opcode == Opcodes.ARETURN) {
+                                    // remove original return value 
+                                    mv.visitInsn(Opcodes.POP);
+                                    // push new value 
+                                    mv.visitLdcInsn("intercepted! :)");
+                                    // return modified value 
+                                    mv.visitInsn(Opcodes.ARETURN);
+                                    return; // skip original value 
                                 }
                                 super.visitInsn(opcode);
                             }
@@ -90,10 +108,19 @@ public class BytecodeTransformer {
             Class<?> modifiedClass = new CustomClassLoader()
                 .defineClass("com.example.HelloWorld", modifiedBytes);
             
-            // execute
+            // create instance 
             Object instance = modifiedClass.getDeclaredConstructor().newInstance();
 
-            Method method = modifiedClass.getMethod("sayHello");
-            method.invoke(instance);
+            // call sayHello()
+            Method sayHello = modifiedClass.getMethod("sayHello");
+            sayHello.invoke(instance);
+
+            System.out.println();
+
+            // call greet(String)
+            Method greet = modifiedClass.getMethod("greet", String.class);
+            Object result = greet.invoke(instance, "Alice");
+
+            System.out.println("Returned value: " + result );
     }
 }

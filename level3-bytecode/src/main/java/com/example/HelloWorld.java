@@ -8,4 +8,8 @@ public class HelloWorld {
     public void sayHello() {
         System.out.println("Hello, there to inspect your bytecode");
     }
+    
+    public String greet(String name){
+        return "Hello" + name;
+    }
 }
