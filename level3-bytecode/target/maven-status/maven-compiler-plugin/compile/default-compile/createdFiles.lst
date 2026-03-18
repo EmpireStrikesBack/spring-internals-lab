@@ -1,7 +1,10 @@
+com/example/BytecodeTransformer.class
 com/example/CustomClassLoader.class
 com/example/App.class
 com/example/BytecodeGenerator.class
 com/example/HelloWorld.class
 com/example/BytecodeReader$1$1.class
+com/example/BytecodeTransformer$1$1.class
+com/example/BytecodeTransformer$1.class
 com/example/BytecodeReader.class
 com/example/BytecodeReader$1.class

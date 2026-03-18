@@ -1,5 +1,6 @@
 /home/student/Documents/Z01/Projects/spring-internals-lab/level3-bytecode/src/main/java/com/example/CustomClassLoader.java
 /home/student/Documents/Z01/Projects/spring-internals-lab/level3-bytecode/src/main/java/com/example/BytecodeGenerator.java
 /home/student/Documents/Z01/Projects/spring-internals-lab/level3-bytecode/src/main/java/com/example/BytecodeReader.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level3-bytecode/src/main/java/com/example/BytecodeTransformer.java
 /home/student/Documents/Z01/Projects/spring-internals-lab/level3-bytecode/src/main/java/com/example/App.java
 /home/student/Documents/Z01/Projects/spring-internals-lab/level3-bytecode/src/main/java/com/example/HelloWorld.java
