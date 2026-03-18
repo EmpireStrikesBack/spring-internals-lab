@@ -29,7 +29,7 @@ public class BytecodeTransformer {
                     );
 
                     // only target sayHello()
-                    if (name.equals("sayHello")) {
+                    if (!name.equals("<init>")) {
                         return new MethodVisitor(Opcodes.ASM9, mv) {
                             @Override
                             public void visitCode() {
@@ -51,6 +51,30 @@ public class BytecodeTransformer {
                                     "(Ljava/lang/String;)V",
                                     false
                                 );
+                            }
+
+                            @Override
+                            public void visitInsn(int opcode) {
+                                // check if it's a RETURN instruciotn
+                                if (opcode == Opcodes.RETURN) {
+                                    // inject before returning (effectively after method logic)
+                                    mv.visitFieldInsn(
+                                        Opcodes.GETSTATIC,
+                                        "java/lang/System",
+                                        "out",
+                                        "Ljava/io/PrintStream;"
+                                    );
+                                    mv.visitLdcInsn(">> Exiting method");
+
+                                    mv.visitMethodInsn(
+                                        Opcodes.INVOKEVIRTUAL,
+                                        "java/io/PrintStream",
+                                        "println",
+                                        "(Ljava/lang/String;)V",
+                                        false
+                                    );
+                                }
+                                super.visitInsn(opcode);
                             }
                         };
                     }
