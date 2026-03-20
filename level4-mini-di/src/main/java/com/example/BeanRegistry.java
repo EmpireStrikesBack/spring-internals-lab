@@ -52,7 +52,7 @@ public class BeanRegistry {
         return beans.containsKey(type);
     }
 
-    public Map<Class<?>, Object> getAllbeans() {
+    public Map<Class<?>, Object> getAllBeans() {
         return Collections.unmodifiableMap(beans);
     }
 
