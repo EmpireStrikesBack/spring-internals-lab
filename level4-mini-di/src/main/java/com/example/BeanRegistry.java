@@ -8,7 +8,7 @@ import java.util.Map;
 Step 2 : BeanRegistry
  - It's the heart of any DI container : Maps Class<?> keys to singleton Object instances
   - Spring equivalent : DefaultSingletonBeanRgistry 
-    - Maintains a singletonObjects ConcurrentHasMap internally 
+    - Maintains a singletonObjects ConcurrentHashMap internally 
  - Key design decisions : 
     - LinkedsHashMap : preserves insertion order (deterministic printSummary)
     - getBean() walks the registry for assignability 
