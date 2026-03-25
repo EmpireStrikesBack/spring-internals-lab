@@ -1,1 +1,14 @@
 com/example/App.class
+com/example/ComponentScanner.class
+com/example/PostConstruct.class
+com/example/Inject.class
+com/example/Component.class
+com/example/CircularB.class
+com/example/UserService.class
+com/example/BeanRegistry.class
+com/example/DependencyInjector.class
+com/example/MiniApplicationContext.class
+com/example/UserRepository.class
+com/example/CircularA.class
+com/example/NotAComponent.class
+com/example/AppController.class

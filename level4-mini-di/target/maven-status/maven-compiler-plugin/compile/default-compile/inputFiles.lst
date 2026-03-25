@@ -1,1 +1,14 @@
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/Inject.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/DependencyInjector.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/CircularB.java
 /home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/App.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/CircularA.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/BeanRegistry.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/MiniApplicationContext.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/UserService.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/ComponentScanner.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/AppController.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/PostConstruct.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/NotAComponent.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/UserRepository.java
+/home/student/Documents/Z01/Projects/spring-internals-lab/level4-mini-di/src/main/java/com/example/Component.java
